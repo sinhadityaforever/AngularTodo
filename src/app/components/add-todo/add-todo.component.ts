@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Todo } from 'src/app/Todo';
 
 @Component({
@@ -10,6 +17,9 @@ export class AddTodoComponent implements OnInit {
   title!: string;
   desc!: string;
   @Output() addTodo: EventEmitter<Todo> = new EventEmitter();
+
+  @ViewChild('addTodoForm', { static: false })
+  addTodoForm!: NgForm;
   constructor() {}
 
   ngOnInit(): void {}
@@ -21,5 +31,6 @@ export class AddTodoComponent implements OnInit {
       active: true,
     };
     this.addTodo.emit(todo);
+    this.addTodoForm.reset();
   }
 }

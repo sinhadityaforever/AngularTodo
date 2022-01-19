@@ -1,7 +1,12 @@
 <hr />
 <div class="container">
   <h3>Add todos</h3>
-  <form (ngSubmit)="onSubmit()" class="mb-3">
+  <form
+    name="addTodoForm"
+    #addTodoForm="ngForm"
+    (ngSubmit)="onSubmit()"
+    class="mb-3"
+  >
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>
       <input
