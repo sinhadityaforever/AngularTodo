@@ -1,0 +1,26 @@
+<div class="my-3">
+  <!-- <div *ngIf="todo.active == false; else elseBlock">
+    <h3>
+      <del>{{ todo.title }}</del>
+    </h3>
+  </div>
+  <ng-template #elseBlock
+    ><h3>{{ todo.title }}</h3></ng-template
+  > -->
+
+  <h5 [ngClass]="{ strike: !todo.active }">{{ todo.title }}</h5>
+
+  <p>{{ todo.desc }}</p>
+  <div class="mb-3 form-check">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      id="exampleCheck1"
+      (click)="toggleDone(todo)"
+    />
+    <label class="form-check-label" for="exampleCheck1"
+      >Mark as completed</label
+    >
+  </div>
+  <button class="btn btn-danger btn-sm" (click)="onClick(todo)">Delete</button>
+</div>
